@@ -25,7 +25,7 @@ final class MediatorServiceProvider extends ServiceProvider
                 $behaviors = $scope->get(ConfigurationInterface::class)->array('mediator.behaviors', []);
 
                 return new Mediator($scope, $scope->get(HandlerMap::class), $behaviors);
-            })
+            })->uses(ConfigurationInterface::class, HandlerMap::class)
             ->alias(Mediator::class, MediatorInterface::class);
     }
 
