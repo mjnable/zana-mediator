@@ -22,6 +22,10 @@ final readonly class Mediator implements MediatorInterface
     ) {
     }
 
+    /**
+     * @throws HandlerNotFoundException If no handler is mapped for the message
+     * @throws \Throwable What the handler or a behavior throws
+     */
     public function send(object $message): mixed
     {
         $handlerClass = $this->handlers->handlerFor($message) ?? throw HandlerNotFoundException::for($message);

@@ -3,6 +3,14 @@
 All Zana packages share one version number and are released together. A release that did
 not change this package is not listed.
 
+## 2.20.0 — Unreleased
+
+### Changed
+
+- `send()` declares `@throws \Throwable` besides `HandlerNotFoundException`: the handler's and the behaviors'
+  exceptions reach the caller as they are (FE-77). With only `HandlerNotFoundException` declared, PHPStan reported a
+  `catch` of a handler's domain exception around `send()` as dead. The package analyses that pattern at level 8.
+
 ## 2.4.0 — 2026-10-26
 
 ### Changed
